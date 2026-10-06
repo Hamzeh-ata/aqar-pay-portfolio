@@ -1,0 +1,122 @@
+<section class="section section-muted">
+  <div class="container-wide">
+    <div class="grid items-center gap-10 lg:grid-cols-2">
+      <div appReveal>
+        <h2 class="section-title">{{ 'bilingual.title' | translate }}</h2>
+        <p class="lede mt-5">{{ 'bilingual.copy' | translate }}</p>
+        <div class="mt-6 flex items-center gap-1 rounded-full border border-line bg-white px-1 py-1 text-[0.78rem] font-bold w-fit">
+          <button
+            type="button"
+            class="rounded-full px-3 py-1.5 transition"
+            [class.tab-active]="previewLang() === 'en'"
+            [class.tab-idle]="previewLang() !== 'en'"
+            (click)="setPreviewLang('en')"
+          >
+            English
+          </button>
+          <button
+            type="button"
+            class="rounded-full px-3 py-1.5 transition"
+            [class.tab-active]="previewLang() === 'ar'"
+            [class.tab-idle]="previewLang() !== 'ar'"
+            (click)="setPreviewLang('ar')"
+          >
+            العربية
+          </button>
+        </div>
+      </div>
+
+      <div appReveal>
+        <div class="browser-frame">
+          <div class="browser-chrome">
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <div class="browser-url">app.aqarpay.com / {{ previewLang() === 'ar' ? 'ar' : 'en' }}</div>
+          </div>
+          <div
+            class="bg-[#f7f8fb] p-4 md:p-5"
+            [attr.dir]="previewLang() === 'ar' ? 'rtl' : 'ltr'"
+          >
+            <div class="mb-3 flex items-center justify-between gap-3">
+              <div class="text-sm font-bold text-ink">
+                @if (previewLang() === 'ar') {
+                  المحفظة
+                } @else {
+                  Portfolio
+                }
+              </div>
+              <div class="demo-note">{{ 'hero.demoLabel' | translate }}</div>
+            </div>
+            <div class="grid grid-cols-2 gap-2.5">
+              <div class="kpi">
+                <div class="kpi-label">
+                  @if (previewLang() === 'ar') {
+                    الإشغال
+                  } @else {
+                    Occupancy
+                  }
+                </div>
+                <div class="kpi-value">91%</div>
+              </div>
+              <div class="kpi">
+                <div class="kpi-label">
+                  @if (previewLang() === 'ar') {
+                    المحصّل
+                  } @else {
+                    Collected
+                  }
+                </div>
+                <div class="kpi-value">86%</div>
+              </div>
+            </div>
+            <div class="ui-panel mt-3 overflow-hidden">
+              <table class="w-full text-[0.72rem]" [class.text-left]="previewLang() === 'en'" [class.text-right]="previewLang() === 'ar'">
+                <thead class="border-b border-line text-muted">
+                  <tr>
+                    <th class="px-3 py-2">
+                      @if (previewLang() === 'ar') {
+                        الوحدة
+                      } @else {
+                        Unit
+                      }
+                    </th>
+                    <th class="px-3 py-2">
+                      @if (previewLang() === 'ar') {
+                        الحالة
+                      } @else {
+                        Status
+                      }
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="text-copy">
+                  <tr class="border-b border-line-soft">
+                    <td class="px-3 py-2.5">A-101</td>
+                    <td class="px-3 py-2.5"><span class="status-pill status-ok">
+                      @if (previewLang() === 'ar') {
+                        مشغولة
+                      } @else {
+                        Occupied
+                      }
+                    </span></td>
+                  </tr>
+                  <tr>
+                    <td class="px-3 py-2.5">A-204</td>
+                    <td class="px-3 py-2.5"><span class="status-pill status-warn">
+                      @if (previewLang() === 'ar') {
+                        تنتهي قريباً
+                      } @else {
+                        Expiring
+                      }
+                    </span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,178 @@
+<section id="utilities" class="section section-muted">
+  <div class="container-wide">
+    <div class="max-w-3xl" appReveal>
+      <div class="eyebrow">{{ 'utilities.eyebrow' | translate }}</div>
+      <h2 class="section-title mt-4">{{ 'utilities.title' | translate }}</h2>
+      <p class="lede mt-5">{{ 'utilities.copy' | translate }}</p>
+    </div>
+
+    <div class="mt-16 lg:mt-20" appReveal>
+      <div class="mb-8">
+        <div class="flow-track justify-center">
+          @for (step of flowSteps; track step.id; let last = $last) {
+            <button
+              type="button"
+              class="flow-chip transition"
+              [class.tab-active]="activeStep() === step.id"
+              [class.tab-idle]="activeStep() !== step.id"
+              (click)="selectStep(step.id)"
+            >
+              {{ step.labelKey | translate }}
+            </button>
+            @if (!last) {
+              <span class="flow-arrow">→</span>
+            }
+          }
+        </div>
+      </div>
+
+      <div class="grid items-center gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+        <div class="flex justify-center lg:justify-end">
+          <div class="phone-frame">
+            <div class="phone-notch"><span></span></div>
+            <div class="p-4">
+              <div class="mb-4 flex items-center justify-between">
+                <div class="text-xs font-bold text-ink">{{ 'utilityFlow.mobile' | translate }}</div>
+                <div class="demo-note">{{ 'hero.demoLabel' | translate }}</div>
+              </div>
+
+              @switch (activeStep()) {
+                @case ('mobile') {
+                  <div class="ui-panel p-4">
+                    <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">Field app</div>
+                    <div class="mt-3 text-sm font-bold text-ink">A-204 · Al Noor Tower</div>
+                    <div class="mt-4 space-y-2 text-[0.78rem] text-copy">
+                      <div class="rounded-lg bg-surface-soft px-3 py-2">Water meter</div>
+                      <div class="rounded-lg bg-surface-soft px-3 py-2">Electricity meter</div>
+                    </div>
+                  </div>
+                }
+                @case ('reading') {
+                  <div class="ui-panel p-4">
+                    <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">Water</div>
+                    <div class="mt-3 text-2xl font-bold text-ink">4,218</div>
+                    <div class="mt-4 aspect-[4/3] rounded-xl bg-surface-soft flex items-center justify-center text-[0.72rem] font-bold uppercase tracking-[0.1em] text-muted">
+                      Photo evidence
+                    </div>
+                    <div class="mt-3 text-[0.72rem] text-copy">Captured · 04 Mar 2026</div>
+                  </div>
+                }
+                @case ('web') {
+                  <div class="ui-panel p-4">
+                    <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">Synced</div>
+                    <div class="mt-3 text-sm font-bold text-ink">Reading uploaded</div>
+                    <div class="mt-4"><span class="status-pill status-ok">On web platform</span></div>
+                  </div>
+                }
+                @case ('billing') {
+                  <div class="ui-panel p-4">
+                    <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">Utility bill</div>
+                    <div class="mt-3 text-sm font-bold text-ink">Water · A-204</div>
+                    <div class="mt-2 text-lg font-bold text-ink">85</div>
+                    <div class="mt-3"><span class="status-pill status-info">Added to invoice</span></div>
+                  </div>
+                }
+              }
+            </div>
+          </div>
+        </div>
+
+        <div class="browser-frame">
+          <div class="browser-chrome">
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <div class="browser-url">app.aqarpay.com / utilities / dashboard</div>
+          </div>
+
+          <div class="bg-[#f7f8fb] p-5 md:p-8">
+            <div class="mb-6 flex items-center justify-between gap-4">
+              <div class="text-sm font-bold text-ink">{{ 'utilityFlow.web' | translate }}</div>
+              <div class="demo-note">{{ 'hero.demoLabel' | translate }}</div>
+            </div>
+
+            @switch (activeStep()) {
+              @case ('mobile') {
+                <div class="grid gap-4 md:grid-cols-2">
+                  <div class="ui-panel p-5">
+                    <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">Pending readings</div>
+                    <div class="mt-3 text-2xl font-bold text-ink">12</div>
+                    <div class="mt-2 text-sm text-copy">Awaiting field capture</div>
+                  </div>
+                  <div class="ui-panel p-5">
+                    <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">Buildings</div>
+                    <div class="mt-3 text-2xl font-bold text-ink">3</div>
+                    <div class="mt-2 text-sm text-copy">Active utility cycles</div>
+                  </div>
+                </div>
+              }
+              @case ('reading') {
+                <div class="ui-panel p-5 md:p-6">
+                  <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">{{ 'utilityFlow.reading' | translate }}</div>
+                  <div class="mt-4 grid gap-4 sm:grid-cols-3">
+                    <div>
+                      <div class="text-sm text-copy">Previous</div>
+                      <div class="mt-1 text-lg font-bold text-ink">4,102</div>
+                    </div>
+                    <div>
+                      <div class="text-sm text-copy">Current</div>
+                      <div class="mt-1 text-lg font-bold text-ink">4,218</div>
+                    </div>
+                    <div>
+                      <div class="text-sm text-copy">Consumption</div>
+                      <div class="mt-1 text-lg font-bold text-ink">116</div>
+                    </div>
+                  </div>
+                  <div class="mt-5"><span class="status-pill status-info">Photo attached</span></div>
+                </div>
+              }
+              @case ('web') {
+                <div class="ui-panel overflow-hidden">
+                  <table class="w-full text-left text-[0.78rem]">
+                    <thead class="border-b border-line text-muted">
+                      <tr>
+                        <th class="px-5 py-2.5 font-bold">Unit</th>
+                        <th class="px-5 py-2.5 font-bold">Utility</th>
+                        <th class="px-5 py-2.5 font-bold">Reading</th>
+                        <th class="px-5 py-2.5 font-bold">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody class="text-copy">
+                      <tr class="border-b border-line-soft">
+                        <td class="px-5 py-3 font-semibold text-ink">A-204</td>
+                        <td class="px-5 py-3">Water</td>
+                        <td class="px-5 py-3">4,218</td>
+                        <td class="px-5 py-3"><span class="status-pill status-ok">Verified</span></td>
+                      </tr>
+                      <tr>
+                        <td class="px-5 py-3 font-semibold text-ink">A-204</td>
+                        <td class="px-5 py-3">Electricity</td>
+                        <td class="px-5 py-3">12,440</td>
+                        <td class="px-5 py-3"><span class="status-pill status-warn">Pending</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              }
+              @case ('billing') {
+                <div class="grid gap-4 md:grid-cols-2">
+                  <div class="ui-panel p-5">
+                    <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">{{ 'utilityFlow.billing' | translate }}</div>
+                    <div class="mt-3 text-sm font-bold text-ink">Water · A-204</div>
+                    <div class="mt-2 text-2xl font-bold text-ink">85</div>
+                    <div class="mt-3 text-sm text-copy">116 units × rate</div>
+                  </div>
+                  <div class="ui-panel p-5">
+                    <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">Invoice link</div>
+                    <div class="mt-3 text-sm font-bold text-ink">INV-2402</div>
+                    <div class="mt-3"><span class="status-pill status-ok">Ready</span></div>
+                  </div>
+                </div>
+              }
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

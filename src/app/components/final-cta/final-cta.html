@@ -1,0 +1,74 @@
+<section id="demo" class="section section-dark relative overflow-hidden !py-24 md:!py-32">
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute inset-0 soft-grid opacity-[0.07]"></div>
+    <div class="absolute -top-32 left-1/2 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(61,110,245,0.28),transparent_68%)] blur-2xl"></div>
+    <div class="absolute -bottom-40 -start-24 h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,rgba(15,159,138,0.16),transparent_70%)] blur-3xl"></div>
+    <div class="absolute -bottom-28 -end-20 h-[24rem] w-[24rem] rounded-full bg-[radial-gradient(circle,rgba(61,110,245,0.14),transparent_70%)] blur-3xl"></div>
+    <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+    <div class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/12 to-transparent"></div>
+  </div>
+
+  <div class="container-wide relative z-10">
+    <div class="mx-auto max-w-4xl text-center" appReveal>
+      <div class="mx-auto mb-8 inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-4 py-1.5 text-[0.72rem] font-bold tracking-[0.16em] text-white/70 uppercase">
+        <span class="h-1.5 w-1.5 rounded-full bg-teal"></span>
+        AQARPAY
+      </div>
+
+      <h2 class="display md:!text-[4.6rem]">{{ 'cta.title' | translate }}</h2>
+      <p class="lede mx-auto mt-6 max-w-2xl !text-[1.08rem]">{{ 'cta.copy' | translate }}</p>
+
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
+        <a href="tel:+962798354093" class="btn-light !min-h-12 !px-7 !text-[0.95rem] shadow-[0_18px_50px_rgba(255,255,255,0.12)]">
+          {{ 'cta.primary' | translate }}
+        </a>
+        <a href="#platform" class="btn-ghost-light !min-h-12 !px-6 hover:bg-white/[0.06]">
+          {{ 'cta.secondary' | translate }}
+        </a>
+      </div>
+
+      <div class="mt-12 inline-flex flex-col items-center gap-3 rounded-[1.6rem] border border-white/15 bg-white/[0.06] px-8 py-6 backdrop-blur-md">
+        <div class="text-[0.7rem] font-bold tracking-[0.18em] text-white/75 uppercase">{{ 'nav.bookDemo' | translate }}</div>
+        <a
+          href="tel:+962798354093"
+          class="text-3xl font-extrabold tracking-tight text-white transition hover:text-[#8fb0ff] md:text-4xl"
+        >
+          {{ 'cta.phone' | translate }}
+        </a>
+        <div class="h-px w-16 bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
+        <div class="text-[0.78rem] font-semibold text-white/70">{{ 'brand.name' | translate }}</div>
+      </div>
+    </div>
+
+    <div class="relative mx-auto mt-16 max-w-3xl" appReveal>
+      <div class="pointer-events-none absolute -inset-x-10 -top-8 h-24 bg-[radial-gradient(ellipse_at_center,rgba(61,110,245,0.2),transparent_70%)]"></div>
+      <div class="browser-frame !border-white/10 !bg-[#0d1018] !shadow-[0_40px_100px_rgba(0,0,0,0.45)]">
+        <div class="browser-chrome !border-white/8 !bg-[#12151f]">
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <div class="browser-url !border-white/10 !bg-white/[0.04] !text-white/40">app.aqarpay.com</div>
+        </div>
+        <div class="grid grid-cols-2 gap-2.5 bg-[#0b0e16] p-4 md:grid-cols-4 md:gap-3 md:p-5">
+          <div class="rounded-xl border border-white/8 bg-white/[0.03] p-3">
+            <div class="text-[0.62rem] font-bold tracking-[0.1em] text-white/35 uppercase">{{ 'dashboard.collected' | translate }}</div>
+            <div class="mt-2 text-xl font-bold text-white">86%</div>
+          </div>
+          <div class="rounded-xl border border-white/8 bg-white/[0.03] p-3">
+            <div class="text-[0.62rem] font-bold tracking-[0.1em] text-white/35 uppercase">{{ 'dashboard.occupancy' | translate }}</div>
+            <div class="mt-2 text-xl font-bold text-white">91%</div>
+          </div>
+          <div class="rounded-xl border border-white/8 bg-white/[0.03] p-3">
+            <div class="text-[0.62rem] font-bold tracking-[0.1em] text-white/35 uppercase">{{ 'dashboard.outstanding' | translate }}</div>
+            <div class="mt-2 text-xl font-bold text-white">14%</div>
+          </div>
+          <div class="rounded-xl border border-white/8 bg-white/[0.03] p-3">
+            <div class="text-[0.62rem] font-bold tracking-[0.1em] text-white/35 uppercase">{{ 'dashboard.maintenance' | translate }}</div>
+            <div class="mt-2 text-xl font-bold text-white">7</div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-3 text-center demo-note !text-teal/80">{{ 'hero.demoLabel' | translate }}</div>
+    </div>
+  </div>
+</section>

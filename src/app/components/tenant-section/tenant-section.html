@@ -1,0 +1,160 @@
+<section id="tenants" class="section section-muted">
+  <div class="container-wide">
+    <div class="max-w-3xl" appReveal>
+      <div class="eyebrow">{{ 'tenants.eyebrow' | translate }}</div>
+      <h2 class="section-title mt-4">{{ 'tenants.title' | translate }}</h2>
+      <p class="lede mt-5">{{ 'tenants.copy' | translate }}</p>
+    </div>
+
+    <div class="mt-16 lg:mt-20" appReveal>
+      <div class="browser-frame">
+        <div class="browser-chrome">
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <div class="browser-url">app.aqarpay.com / tenants / profile</div>
+        </div>
+
+        <div class="bg-[#f7f8fb] p-5 md:p-8">
+          <div class="mb-8 flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <div class="text-2xl font-bold tracking-tight text-ink">Demo Tenant C</div>
+              <div class="mt-1 text-sm text-copy">A-204 · Al Noor Tower</div>
+            </div>
+            <div class="demo-note">{{ 'hero.demoLabel' | translate }}</div>
+          </div>
+
+          <div class="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+            <div class="space-y-4">
+              <div class="ui-panel p-5 md:p-6">
+                <div class="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <div class="text-[0.68rem] font-bold uppercase tracking-[0.1em] text-muted">Contact</div>
+                    <div class="mt-2 text-sm font-semibold text-ink">+962 7X XXX XXXX</div>
+                  </div>
+                  <div>
+                    <div class="text-[0.68rem] font-bold uppercase tracking-[0.1em] text-muted">Identity</div>
+                    <div class="mt-2 text-sm font-semibold text-ink">National ID · Verified</div>
+                  </div>
+                  <div>
+                    <div class="text-[0.68rem] font-bold uppercase tracking-[0.1em] text-muted">Documents</div>
+                    <div class="mt-2 flex flex-wrap gap-2">
+                      <span class="status-pill status-info">Contract</span>
+                      <span class="status-pill status-info">ID Copy</span>
+                      <span class="status-pill status-info">Guarantor</span>
+                      <span class="status-pill status-info">Receipt</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="text-[0.68rem] font-bold uppercase tracking-[0.1em] text-muted">Apartment</div>
+                    <div class="mt-2 text-sm font-semibold text-ink">A-204 · Floor 2</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-panel p-5 md:p-6">
+                <div class="text-[0.68rem] font-bold uppercase tracking-[0.1em] text-muted">Contract</div>
+                <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                  <div>
+                    <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">Rent</div>
+                    <div class="mt-1.5 text-lg font-bold text-ink">1,450</div>
+                  </div>
+                  <div>
+                    <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">Deposit</div>
+                    <div class="mt-1.5 text-lg font-bold text-ink">2,900</div>
+                  </div>
+                  <div>
+                    <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">Start</div>
+                    <div class="mt-1.5 text-sm font-semibold text-ink">01 Jan 2026</div>
+                  </div>
+                  <div>
+                    <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">End</div>
+                    <div class="mt-1.5 text-sm font-semibold text-ink">31 Dec 2026</div>
+                  </div>
+                </div>
+                <div class="mt-5 flex items-center justify-between border-t border-line-soft pt-5">
+                  <span class="text-sm text-copy">Renewal</span>
+                  <span class="status-pill status-warn">Due in 90 days</span>
+                </div>
+              </div>
+
+              <div class="ui-panel overflow-hidden">
+                <div class="border-b border-line px-5 py-3 text-[0.72rem] font-bold uppercase tracking-[0.1em] text-muted">
+                  Payment History
+                </div>
+                <table class="w-full text-left text-[0.78rem]">
+                  <thead class="border-b border-line text-muted">
+                    <tr>
+                      <th class="px-5 py-2.5 font-bold">Period</th>
+                      <th class="px-5 py-2.5 font-bold">Amount</th>
+                      <th class="px-5 py-2.5 font-bold">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-copy">
+                    @for (payment of payments; track payment.period) {
+                      <tr class="border-b border-line-soft last:border-0">
+                        <td class="px-5 py-3">{{ payment.period }}</td>
+                        <td class="px-5 py-3 font-semibold text-ink">{{ payment.amount }}</td>
+                        <td class="px-5 py-3">
+                          @if (payment.status === 'ok') {
+                            <span class="status-pill status-ok">Paid</span>
+                          } @else {
+                            <span class="status-pill status-warn">Pending</span>
+                          }
+                        </td>
+                      </tr>
+                    }
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="ui-panel p-5 md:p-6">
+              <div class="text-[0.68rem] font-bold uppercase tracking-[0.1em] text-muted">Contract Timeline</div>
+              <div class="mt-6 space-y-6">
+                <div class="flex items-center justify-between text-sm">
+                  <span class="text-copy">Start</span>
+                  <span class="font-semibold text-ink">01 Jan 2026</span>
+                </div>
+                <div>
+                  <div class="mb-2 flex justify-between text-[0.72rem] text-muted">
+                    <span>Progress</span>
+                    <span>70%</span>
+                  </div>
+                  <div class="bar-track"><span class="bar-fill" style="width:70%"></span></div>
+                </div>
+                <div class="flex items-center justify-between text-sm">
+                  <span class="text-copy">End</span>
+                  <span class="font-semibold text-ink">31 Dec 2026</span>
+                </div>
+                <div class="rounded-xl bg-surface-soft p-4">
+                  <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">Renewal</div>
+                  <div class="mt-2 text-sm font-semibold text-ink">Review window opens Oct 2026</div>
+                  <div class="mt-3"><span class="status-pill status-ok">Active</span></div>
+                </div>
+                <div class="space-y-3 border-t border-line-soft pt-5">
+                  <div class="flex items-center gap-3 text-[0.78rem]">
+                    <span class="h-2 w-2 rounded-full bg-teal"></span>
+                    <span class="text-copy">Contract signed</span>
+                  </div>
+                  <div class="flex items-center gap-3 text-[0.78rem]">
+                    <span class="h-2 w-2 rounded-full bg-teal"></span>
+                    <span class="text-copy">Deposit recorded</span>
+                  </div>
+                  <div class="flex items-center gap-3 text-[0.78rem]">
+                    <span class="h-2 w-2 rounded-full bg-blue"></span>
+                    <span class="text-copy">First invoice generated</span>
+                  </div>
+                  <div class="flex items-center gap-3 text-[0.78rem]">
+                    <span class="h-2 w-2 rounded-full bg-warn"></span>
+                    <span class="text-copy">Renewal reminder scheduled</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

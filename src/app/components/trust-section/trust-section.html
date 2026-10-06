@@ -1,0 +1,16 @@
+<section class="section">
+  <div class="container-wide">
+    <div class="max-w-3xl" appReveal>
+      <h2 class="section-title">{{ 'trustSection.title' | translate }}</h2>
+      <p class="lede mt-5">{{ 'trustSection.copy' | translate }}</p>
+    </div>
+
+    <div class="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3" appReveal>
+      @for (item of trustItems; track item) {
+        <div class="ui-panel p-5">
+          <div class="text-sm font-bold text-ink">{{ item | translate }}</div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

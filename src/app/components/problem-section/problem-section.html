@@ -1,0 +1,21 @@
+<section id="solutions" class="section">
+  <div class="container-wide grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+    <div appReveal>
+      <h2 class="section-title max-w-xl">{{ 'problem.title' | translate }}</h2>
+      <p class="lede mt-5">{{ 'problem.result' | translate }}</p>
+    </div>
+
+    <div class="relative" appReveal>
+      <div class="grid grid-cols-2 gap-3 sm:grid-cols-3">
+        @for (item of messyItems; track item) {
+          <div class="messy-chip">{{ item | translate }}</div>
+        }
+      </div>
+      <div class="mt-6 rounded-[1.4rem] bg-ink px-6 py-8 text-center text-white shadow-[0_30px_80px_rgba(7,9,15,0.2)]">
+        <div class="text-xs font-bold tracking-[0.18em]">AQARPAY</div>
+        <div class="mt-3 text-2xl font-bold tracking-tight">{{ 'brand.name' | translate }}</div>
+        <div class="mt-4 text-sm text-white/70">{{ 'problem.collapse' | translate }}</div>
+      </div>
+    </div>
+  </div>
+</section>

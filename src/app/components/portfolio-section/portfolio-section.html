@@ -1,0 +1,133 @@
+<section id="portfolio" class="section">
+  <div class="container-wide">
+    <div class="max-w-3xl" appReveal>
+      <div class="eyebrow">{{ 'portfolio.eyebrow' | translate }}</div>
+      <h2 class="section-title mt-4">{{ 'portfolio.title' | translate }}</h2>
+      <p class="lede mt-5">{{ 'portfolio.copy' | translate }}</p>
+    </div>
+
+    <div class="mt-16 lg:mt-20" appReveal>
+      <div class="browser-frame">
+        <div class="browser-chrome">
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <div class="browser-url">app.aqarpay.com / portfolio / drill-down</div>
+        </div>
+
+        <div class="bg-[#f7f8fb] p-5 md:p-8">
+          <div class="mb-6 flex items-center justify-between gap-4">
+            <div class="text-sm font-bold text-ink">{{ 'platformTabs.portfolio' | translate }}</div>
+            <div class="demo-note">{{ 'hero.demoLabel' | translate }}</div>
+          </div>
+
+          <div class="grid gap-4 lg:grid-cols-[1fr_1fr_1fr_1.1fr]">
+            <div class="ui-panel overflow-hidden">
+              <div class="border-b border-line px-4 py-3 text-[0.72rem] font-bold uppercase tracking-[0.1em] text-muted">
+                Building
+              </div>
+              <div class="divide-y divide-line-soft">
+                @for (building of buildings; track building.id) {
+                  <button
+                    type="button"
+                    class="flex w-full items-center justify-between px-4 py-3.5 text-start text-[0.84rem] transition"
+                    [class.bg-blue-soft]="selectedBuilding() === building.id"
+                    [class.font-semibold]="selectedBuilding() === building.id"
+                    [class.text-ink]="selectedBuilding() === building.id"
+                    [class.text-copy]="selectedBuilding() !== building.id"
+                    (click)="selectBuilding(building.id)"
+                  >
+                    <span>{{ building.name }}</span>
+                    <span class="text-[0.72rem] text-muted">{{ building.units }}</span>
+                  </button>
+                }
+              </div>
+            </div>
+
+            <div class="ui-panel overflow-hidden">
+              <div class="border-b border-line px-4 py-3 text-[0.72rem] font-bold uppercase tracking-[0.1em] text-muted">
+                Floor
+              </div>
+              <div class="divide-y divide-line-soft">
+                @for (floor of visibleFloors(); track floor.id) {
+                  <button
+                    type="button"
+                    class="flex w-full px-4 py-3.5 text-start text-[0.84rem] transition"
+                    [class.bg-blue-soft]="selectedFloor() === floor.id"
+                    [class.font-semibold]="selectedFloor() === floor.id"
+                    [class.text-ink]="selectedFloor() === floor.id"
+                    [class.text-copy]="selectedFloor() !== floor.id"
+                    (click)="selectFloor(floor.id)"
+                  >
+                    {{ floor.label }}
+                  </button>
+                }
+              </div>
+            </div>
+
+            <div class="ui-panel overflow-hidden">
+              <div class="border-b border-line px-4 py-3 text-[0.72rem] font-bold uppercase tracking-[0.1em] text-muted">
+                Apartment
+              </div>
+              <div class="divide-y divide-line-soft">
+                @for (unit of visibleUnits(); track unit.id) {
+                  <button
+                    type="button"
+                    class="flex w-full items-center justify-between gap-2 px-4 py-3.5 text-start text-[0.84rem] transition"
+                    [class.bg-blue-soft]="selectedUnit() === unit.id"
+                    [class.font-semibold]="selectedUnit() === unit.id"
+                    [class.text-ink]="selectedUnit() === unit.id"
+                    [class.text-copy]="selectedUnit() !== unit.id"
+                    (click)="selectUnit(unit.id)"
+                  >
+                    <span>{{ unit.label }}</span>
+                    @switch (unit.status) {
+                      @case ('occupied') {
+                        <span class="status-pill status-ok">Occupied</span>
+                      }
+                      @case ('vacant') {
+                        <span class="status-pill status-warn">Vacant</span>
+                      }
+                      @case ('maintenance') {
+                        <span class="status-pill status-info">Maintenance</span>
+                      }
+                    }
+                  </button>
+                }
+              </div>
+            </div>
+
+            <div class="ui-panel p-5 md:p-6">
+              <div class="text-[0.72rem] font-bold uppercase tracking-[0.1em] text-muted">Tenant</div>
+              <div class="mt-4 text-xl font-bold tracking-tight text-ink">{{ activeUnit().tenant }}</div>
+              <div class="mt-6 space-y-4 text-[0.84rem] text-copy">
+                <div class="flex items-center justify-between border-b border-line-soft pb-3">
+                  <span class="text-muted">Unit</span>
+                  <span class="font-semibold text-ink">{{ activeUnit().label }}</span>
+                </div>
+                <div class="flex items-center justify-between border-b border-line-soft pb-3">
+                  <span class="text-muted">Floor</span>
+                  <span class="font-semibold text-ink">{{ activeFloorLabel() }}</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-muted">Status</span>
+                  @switch (activeUnit().status) {
+                    @case ('occupied') {
+                      <span class="status-pill status-ok">Active contract</span>
+                    }
+                    @case ('vacant') {
+                      <span class="status-pill status-warn">Available</span>
+                    }
+                    @case ('maintenance') {
+                      <span class="status-pill status-info">Under maintenance</span>
+                    }
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

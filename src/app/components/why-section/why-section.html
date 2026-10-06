@@ -1,0 +1,20 @@
+<section class="section section-dark">
+  <div class="container-wide">
+    <div class="max-w-4xl" appReveal>
+      <h2 class="display">
+        {{ 'why.titleLine1' | translate }}<br />
+        {{ 'why.titleLine2' | translate }}<br />
+        {{ 'why.titleLine3' | translate }}
+      </h2>
+    </div>
+
+    <div class="mt-14 grid gap-0 md:grid-cols-2" appReveal>
+      @for (item of principles; track item.titleKey) {
+        <div class="principle px-0 md:px-6">
+          <h3 class="text-xl font-bold tracking-tight text-white md:text-2xl">{{ item.titleKey | translate }}</h3>
+          <p class="mt-3 max-w-sm text-[0.95rem] leading-relaxed text-white/65">{{ item.copyKey | translate }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

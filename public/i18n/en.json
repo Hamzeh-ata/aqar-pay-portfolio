@@ -1,0 +1,196 @@
+{
+  "brand": {
+    "name": "AqarPay"
+  },
+  "nav": {
+    "platform": "Platform",
+    "solutions": "Solutions",
+    "features": "Features",
+    "howItWorks": "How It Works",
+    "resources": "Resources",
+    "bookDemo": "Book a Demo",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "hero": {
+    "eyebrow": "Property operations, reimagined",
+    "title": "Run your entire rental operation from one place.",
+    "copy": "AqarPay brings properties, tenants, contracts, billing, collections, utilities, maintenance and reporting into one connected operating system.",
+    "ctaPrimary": "Book a Demo",
+    "ctaSecondary": "Explore Platform",
+    "phone": "+962 79 835 4093",
+    "demoLabel": "Demo data"
+  },
+  "trust": {
+    "title": "One platform. Every property operation."
+  },
+  "problem": {
+    "title": "Your properties shouldn't live across spreadsheets, messages and scattered files.",
+    "result": "From fragmented processes to one source of truth.",
+    "collapse": "One structured operational system."
+  },
+  "platform": {
+    "title": "Your property business, connected.",
+    "copy": "Explore how AqarPay connects every operational layer into one workspace."
+  },
+  "portfolio": {
+    "eyebrow": "Portfolio",
+    "title": "See every property. Every unit. At a glance.",
+    "copy": "Manage your entire property portfolio from one structured workspace."
+  },
+  "tenants": {
+    "eyebrow": "Tenants & Contracts",
+    "title": "Every tenant. Every contract. One clear record.",
+    "copy": "Keep tenant profiles, documents, contracts and history connected to the right unit."
+  },
+  "billing": {
+    "eyebrow": "Billing & Collections",
+    "title": "Know what is owed. Know what is collected.",
+    "copy": "Turn rent collection into a clear operational process — invoices, payments, confirmations, receipts and statements."
+  },
+  "utilities": {
+    "eyebrow": "Utilities",
+    "title": "Turn meter readings into organized billing.",
+    "copy": "Field teams capture readings with photo evidence. The office turns them into accurate utility billing."
+  },
+  "maintenance": {
+    "eyebrow": "Maintenance",
+    "title": "From issue reported to issue resolved.",
+    "copy": "Track maintenance from request to resolution with photos, assignment and apartment history."
+  },
+  "roles": {
+    "eyebrow": "Roles",
+    "title": "Everyone sees what they need.",
+    "copy": "Role-based permissions keep owners, managers, accountants and field teams focused."
+  },
+  "webMobile": {
+    "eyebrow": "Web + Mobile",
+    "title": "From the office to the field. One connected system.",
+    "webTitle": "Web administration",
+    "mobileTitle": "Mobile field operations"
+  },
+  "intelligence": {
+    "eyebrow": "Management visibility",
+    "title": "Stop guessing. Start seeing.",
+    "copy": "Give leadership clear operational and collection visibility across the portfolio."
+  },
+  "why": {
+    "titleLine1": "One system.",
+    "titleLine2": "Less fragmentation.",
+    "titleLine3": "More control.",
+    "centralizedTitle": "Centralized",
+    "centralizedCopy": "Your property operations live in one system.",
+    "controlledTitle": "Controlled",
+    "controlledCopy": "Roles and permissions keep workflows organized.",
+    "visibleTitle": "Visible",
+    "visibleCopy": "Management gets clear operational and collection visibility.",
+    "connectedTitle": "Connected",
+    "connectedCopy": "Office and field teams work from the same platform."
+  },
+  "bilingual": {
+    "title": "Built for teams that work in Arabic and English.",
+    "copy": "Switch the entire experience between RTL Arabic and LTR English — designed to feel native in both."
+  },
+  "trustSection": {
+    "title": "Built for professional property operations.",
+    "copy": "A restrained foundation for multi-company property businesses that need structure, permissions and audit-friendly records."
+  },
+  "cta": {
+    "title": "Your properties deserve better operations.",
+    "copy": "See how AqarPay can transform the way your team manages properties, tenants, contracts, collections, utilities and maintenance.",
+    "primary": "Book a Private Demo",
+    "secondary": "Explore AqarPay",
+    "phone": "+962 79 835 4093"
+  },
+  "footer": {
+    "tagline": "Property Management & Rental Operations Platform",
+    "platform": "Platform",
+    "solutions": "Solutions",
+    "features": "Features",
+    "howItWorks": "How It Works",
+    "contact": "Contact",
+    "rights": "AqarPay. All rights reserved."
+  },
+  "flow": {
+    "properties": "Properties",
+    "units": "Units",
+    "tenants": "Tenants",
+    "contracts": "Contracts",
+    "billing": "Billing",
+    "collections": "Collections",
+    "utilities": "Utilities",
+    "maintenance": "Maintenance",
+    "reports": "Reports"
+  },
+  "messy": {
+    "excel": "Excel",
+    "pdfs": "PDFs",
+    "paper": "Paper",
+    "whatsapp": "WhatsApp",
+    "screenshots": "Payment screenshots",
+    "meterPhotos": "Meter photos",
+    "messages": "Maintenance messages"
+  },
+  "platformTabs": {
+    "portfolio": "Portfolio",
+    "tenants": "Tenants",
+    "contracts": "Contracts",
+    "billing": "Billing",
+    "collections": "Collections",
+    "utilities": "Utilities",
+    "maintenance": "Maintenance",
+    "reports": "Reports"
+  },
+  "rolesList": {
+    "owner": "Owner",
+    "manager": "Manager",
+    "accountant": "Accountant",
+    "field": "Field Team"
+  },
+  "roleCopy": {
+    "owner": "Portfolio performance, collections, occupancy and outstanding balances.",
+    "manager": "Buildings, tenants, contracts, maintenance and daily operations.",
+    "accountant": "Invoices, payments, balances, statements and reports.",
+    "field": "Apartments, meter readings, payments and maintenance."
+  },
+  "dashboard": {
+    "portfolio": "Portfolio",
+    "occupancy": "Occupancy",
+    "expected": "Expected",
+    "collected": "Collected",
+    "outstanding": "Outstanding",
+    "maintenance": "Maintenance",
+    "expiring": "Expiring contracts",
+    "overdue": "Overdue"
+  },
+  "billingFlow": {
+    "invoice": "Invoice generated",
+    "recorded": "Payment recorded",
+    "confirmation": "Confirmation",
+    "receipt": "Receipt",
+    "statement": "Account statement"
+  },
+  "utilityFlow": {
+    "mobile": "Mobile field app",
+    "reading": "Meter reading",
+    "web": "Web platform",
+    "billing": "Utility billing"
+  },
+  "maintenanceFlow": {
+    "request": "Request",
+    "assignment": "Assignment",
+    "visit": "Field visit",
+    "photos": "Photos",
+    "status": "Status",
+    "resolution": "Resolution"
+  },
+  "trustItems": {
+    "multiCompany": "Multi-company architecture",
+    "permissions": "Permission-based access",
+    "isolation": "Tenant-level data isolation",
+    "auth": "Authentication",
+    "records": "Structured operational records",
+    "documents": "Document management",
+    "audit": "Audit-friendly workflows"
+  }
+}

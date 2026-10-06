@@ -1,0 +1,15 @@
+<section class="border-y border-line bg-white py-10 md:py-12">
+  <div class="container-wide" appReveal>
+    <div class="text-center text-[0.78rem] font-extrabold tracking-[0.18em] text-ink uppercase">
+      {{ 'trust.title' | translate }}
+    </div>
+    <div class="flow-track mt-6 justify-center">
+      @for (step of steps; track step; let last = $last) {
+        <span class="flow-chip">{{ step | translate }}</span>
+        @if (!last) {
+          <span class="flow-arrow">→</span>
+        }
+      }
+    </div>
+  </div>
+</section>

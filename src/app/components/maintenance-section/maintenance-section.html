@@ -1,0 +1,199 @@
+<section id="maintenance" class="section section-dark">
+  <div class="container-wide">
+    <div class="max-w-3xl" appReveal>
+      <div class="eyebrow">{{ 'maintenance.eyebrow' | translate }}</div>
+      <h2 class="section-title mt-4">{{ 'maintenance.title' | translate }}</h2>
+      <p class="lede mt-5">{{ 'maintenance.copy' | translate }}</p>
+    </div>
+
+    <div class="mt-16 lg:mt-20" appReveal>
+      <div class="mb-8">
+        <div class="flow-track">
+          @for (step of flowSteps; track step.id; let last = $last) {
+            <button
+              type="button"
+              class="flow-chip transition"
+              [class.tab-active]="activeStep() === step.id"
+              [class.!border-white/20]="activeStep() !== step.id"
+              [class.!bg-white/10]="activeStep() !== step.id"
+              [class.!text-white/80]="activeStep() !== step.id"
+              (click)="selectStep(step.id)"
+            >
+              {{ step.labelKey | translate }}
+            </button>
+            @if (!last) {
+              <span class="flow-arrow text-white/40">→</span>
+            }
+          }
+        </div>
+      </div>
+
+      <div class="grid items-start gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+        <div class="flex justify-center lg:justify-end">
+          <div class="phone-frame">
+            <div class="phone-notch"><span></span></div>
+            <div class="p-4">
+              <div class="mb-4 flex items-center justify-between">
+                <div class="text-xs font-bold text-ink">{{ 'webMobile.mobileTitle' | translate }}</div>
+                <div class="demo-note">{{ 'hero.demoLabel' | translate }}</div>
+              </div>
+
+              @switch (activeStep()) {
+                @case ('request') {
+                  <div class="ui-panel p-4">
+                    <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">{{ 'maintenanceFlow.request' | translate }}</div>
+                    <div class="mt-3 text-sm font-bold text-ink">B-012 · Plumbing leak</div>
+                    <div class="mt-3 text-[0.78rem] text-copy">Reported by tenant · High priority</div>
+                    <div class="mt-4"><span class="status-pill status-danger">New</span></div>
+                  </div>
+                }
+                @case ('assignment') {
+                  <div class="ui-panel p-4">
+                    <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">{{ 'maintenanceFlow.assignment' | translate }}</div>
+                    <div class="mt-3 text-sm font-bold text-ink">Assigned to Field Team</div>
+                    <div class="mt-3 text-[0.78rem] text-copy">Technician · Demo Staff</div>
+                    <div class="mt-4"><span class="status-pill status-info">Scheduled</span></div>
+                  </div>
+                }
+                @case ('visit') {
+                  <div class="ui-panel p-4">
+                    <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">{{ 'maintenanceFlow.visit' | translate }}</div>
+                    <div class="mt-3 text-sm font-bold text-ink">On-site visit</div>
+                    <div class="mt-3 text-[0.78rem] text-copy">B-012 · 04 Mar 2026 · 10:30</div>
+                    <div class="mt-4"><span class="status-pill status-info">In progress</span></div>
+                  </div>
+                }
+                @case ('photos') {
+                  <div class="ui-panel p-4">
+                    <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">{{ 'maintenanceFlow.photos' | translate }}</div>
+                    <div class="mt-3 grid grid-cols-2 gap-2">
+                      <div class="aspect-square rounded-lg bg-surface-soft"></div>
+                      <div class="aspect-square rounded-lg bg-surface-soft"></div>
+                    </div>
+                    <div class="mt-3 text-[0.72rem] text-copy">Before & after evidence</div>
+                  </div>
+                }
+                @case ('status') {
+                  <div class="ui-panel p-4">
+                    <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">{{ 'maintenanceFlow.status' | translate }}</div>
+                    <div class="mt-3 text-sm font-bold text-ink">Repair in progress</div>
+                    <div class="mt-4"><span class="status-pill status-warn">Awaiting parts</span></div>
+                  </div>
+                }
+                @case ('resolution') {
+                  <div class="ui-panel p-4">
+                    <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">{{ 'maintenanceFlow.resolution' | translate }}</div>
+                    <div class="mt-3 text-sm font-bold text-ink">Issue resolved</div>
+                    <div class="mt-3 text-[0.78rem] text-copy">Pipe replaced · Tested OK</div>
+                    <div class="mt-4"><span class="status-pill status-ok">Closed</span></div>
+                  </div>
+                }
+              }
+            </div>
+          </div>
+        </div>
+
+        <div class="browser-frame">
+          <div class="browser-chrome">
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <div class="browser-url">app.aqarpay.com / maintenance / workflow</div>
+          </div>
+
+          <div class="bg-[#f7f8fb] p-5 md:p-8">
+            <div class="mb-6 flex items-center justify-between gap-4">
+              <div class="text-sm font-bold text-ink">{{ 'webMobile.webTitle' | translate }}</div>
+              <div class="demo-note">{{ 'hero.demoLabel' | translate }}</div>
+            </div>
+
+            @switch (activeStep()) {
+              @case ('request') {
+                <div class="ui-panel overflow-hidden">
+                  <table class="w-full text-left text-[0.78rem]">
+                    <thead class="border-b border-line text-muted">
+                      <tr>
+                        <th class="px-5 py-2.5 font-bold">Unit</th>
+                        <th class="px-5 py-2.5 font-bold">Issue</th>
+                        <th class="px-5 py-2.5 font-bold">Priority</th>
+                        <th class="px-5 py-2.5 font-bold">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody class="text-copy">
+                      <tr class="border-b border-line-soft">
+                        <td class="px-5 py-3 font-semibold text-ink">B-012</td>
+                        <td class="px-5 py-3">Plumbing leak</td>
+                        <td class="px-5 py-3">High</td>
+                        <td class="px-5 py-3"><span class="status-pill status-danger">New</span></td>
+                      </tr>
+                      <tr>
+                        <td class="px-5 py-3 font-semibold text-ink">A-088</td>
+                        <td class="px-5 py-3">AC not cooling</td>
+                        <td class="px-5 py-3">Medium</td>
+                        <td class="px-5 py-3"><span class="status-pill status-ok">Resolved</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              }
+              @case ('assignment') {
+                <div class="ui-panel p-5 md:p-6">
+                  <div class="grid gap-4 sm:grid-cols-2">
+                    <div>
+                      <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">Assigned to</div>
+                      <div class="mt-2 text-sm font-bold text-ink">Field Team · Demo Staff</div>
+                    </div>
+                    <div>
+                      <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">Scheduled</div>
+                      <div class="mt-2 text-sm font-bold text-ink">04 Mar 2026 · 10:30</div>
+                    </div>
+                  </div>
+                </div>
+              }
+              @case ('visit') {
+                <div class="ui-panel p-5 md:p-6">
+                  <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">{{ 'maintenanceFlow.visit' | translate }}</div>
+                  <div class="mt-4 text-sm font-bold text-ink">Technician checked in · B-012</div>
+                  <div class="mt-3 text-sm text-copy">GPS verified · Apartment access confirmed</div>
+                  <div class="mt-5"><span class="status-pill status-info">Visit active</span></div>
+                </div>
+              }
+              @case ('photos') {
+                <div class="grid gap-4 sm:grid-cols-3">
+                  <div class="ui-panel aspect-[4/3] flex items-center justify-center text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">Before</div>
+                  <div class="ui-panel aspect-[4/3] flex items-center justify-center text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">During</div>
+                  <div class="ui-panel aspect-[4/3] flex items-center justify-center text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">After</div>
+                </div>
+              }
+              @case ('status') {
+                <div class="ui-panel p-5 md:p-6">
+                  <div class="mb-4 flex items-center justify-between">
+                    <div class="text-sm font-bold text-ink">B-012 · Plumbing</div>
+                    <span class="status-pill status-warn">In progress</span>
+                  </div>
+                  <div class="space-y-3">
+                    <div>
+                      <div class="mb-1 flex justify-between text-[0.72rem] text-copy"><span>Progress</span><span>65%</span></div>
+                      <div class="bar-track"><span class="bar-fill" style="width:65%"></span></div>
+                    </div>
+                  </div>
+                </div>
+              }
+              @case ('resolution') {
+                <div class="ui-panel p-5 md:p-6">
+                  <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">{{ 'maintenanceFlow.resolution' | translate }}</div>
+                  <div class="mt-4 text-lg font-bold text-ink">Work order closed</div>
+                  <div class="mt-3 text-sm text-copy">Pipe replaced · No further leaks detected</div>
+                  <div class="mt-5 flex flex-wrap gap-2">
+                    <span class="status-pill status-ok">Resolved</span>
+                    <span class="status-pill status-info">History saved</span>
+                  </div>
+                </div>
+              }
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,121 @@
+<section id="platform" class="section section-muted">
+  <div class="container-wide">
+    <div class="max-w-3xl" appReveal>
+      <h2 class="section-title">{{ 'platform.title' | translate }}</h2>
+      <p class="lede mt-4">{{ 'platform.copy' | translate }}</p>
+    </div>
+
+    <div class="mt-10 grid gap-6 lg:grid-cols-[240px_1fr]" appReveal>
+      <div class="flex gap-2 overflow-x-auto lg:flex-col lg:overflow-visible">
+        @for (tab of tabs; track tab.id) {
+          <button
+            type="button"
+            class="flex min-w-[10rem] items-center gap-3 rounded-2xl px-3 py-3 text-start text-sm font-semibold transition lg:min-w-0"
+            [class.tab-active]="activeId() === tab.id"
+            [class.tab-idle]="activeId() !== tab.id"
+            (click)="selectTab(tab.id)"
+          >
+            <span class="text-[0.72rem] opacity-60">{{ tab.index }}</span>
+            <span>{{ tab.labelKey | translate }}</span>
+          </button>
+        }
+      </div>
+
+      <div class="browser-frame">
+        <div class="browser-chrome">
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <div class="browser-url">aqarpay / {{ activeTab().labelKey | translate }}</div>
+        </div>
+        <div class="bg-[#f7f8fb] p-4 md:p-5">
+          <div class="mb-3 flex items-center justify-between">
+            <div class="text-sm font-bold text-ink">{{ activeTab().labelKey | translate }}</div>
+            <div class="demo-note">{{ 'hero.demoLabel' | translate }}</div>
+          </div>
+
+          @switch (activeId()) {
+            @case ('portfolio') {
+              <div class="grid gap-3 md:grid-cols-3">
+                <div class="kpi"><div class="kpi-label">Buildings</div><div class="kpi-value">24</div></div>
+                <div class="kpi"><div class="kpi-label">Units</div><div class="kpi-value">318</div></div>
+                <div class="kpi"><div class="kpi-label">{{ 'dashboard.occupancy' | translate }}</div><div class="kpi-value">91%</div></div>
+              </div>
+              <div class="ui-panel mt-3 overflow-hidden">
+                <table class="w-full text-left text-[0.78rem]">
+                  <thead class="border-b border-line text-muted"><tr><th class="px-3 py-2">Building</th><th class="px-3 py-2">Units</th><th class="px-3 py-2">Status</th></tr></thead>
+                  <tbody>
+                    <tr class="border-b border-line-soft"><td class="px-3 py-2.5">Al Noor Tower</td><td class="px-3 py-2.5">48</td><td class="px-3 py-2.5"><span class="status-pill status-ok">Active</span></td></tr>
+                    <tr class="border-b border-line-soft"><td class="px-3 py-2.5">Garden Residences</td><td class="px-3 py-2.5">36</td><td class="px-3 py-2.5"><span class="status-pill status-ok">Active</span></td></tr>
+                    <tr><td class="px-3 py-2.5">Harbor View</td><td class="px-3 py-2.5">22</td><td class="px-3 py-2.5"><span class="status-pill status-warn">Review</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            }
+            @case ('tenants') {
+              <div class="ui-panel p-4">
+                <div class="text-sm font-bold text-ink">Demo Tenant</div>
+                <div class="mt-3 grid gap-2 text-[0.8rem] text-copy sm:grid-cols-2">
+                  <div>Contact · +962 7X XXX XXXX</div>
+                  <div>Apartment · A-204</div>
+                  <div>Documents · 4 files</div>
+                  <div>History · Active</div>
+                </div>
+              </div>
+            }
+            @case ('contracts') {
+              <div class="ui-panel p-4">
+                <div class="mb-3 text-sm font-bold">Contract timeline</div>
+                <div class="space-y-3">
+                  <div class="flex items-center justify-between text-[0.8rem]"><span>Start</span><span class="font-semibold">01 Jan 2026</span></div>
+                  <div class="bar-track"><span class="bar-fill" style="width:70%"></span></div>
+                  <div class="flex items-center justify-between text-[0.8rem]"><span>End / Renewal</span><span class="font-semibold">31 Dec 2026</span></div>
+                </div>
+              </div>
+            }
+            @case ('billing') {
+              <div class="grid gap-3 sm:grid-cols-3">
+                <div class="kpi"><div class="kpi-label">{{ 'dashboard.expected' | translate }}</div><div class="kpi-value">—</div></div>
+                <div class="kpi"><div class="kpi-label">Rent</div><div class="kpi-value">Demo</div></div>
+                <div class="kpi"><div class="kpi-label">Utilities</div><div class="kpi-value">Demo</div></div>
+              </div>
+            }
+            @case ('collections') {
+              <div class="grid gap-3 sm:grid-cols-4">
+                <div class="kpi"><div class="kpi-label">{{ 'dashboard.expected' | translate }}</div><div class="kpi-value">100%</div></div>
+                <div class="kpi"><div class="kpi-label">{{ 'dashboard.collected' | translate }}</div><div class="kpi-value">86%</div></div>
+                <div class="kpi"><div class="kpi-label">{{ 'dashboard.outstanding' | translate }}</div><div class="kpi-value">14%</div></div>
+                <div class="kpi"><div class="kpi-label">{{ 'dashboard.overdue' | translate }}</div><div class="kpi-value">6%</div></div>
+              </div>
+            }
+            @case ('utilities') {
+              <div class="grid gap-3 md:grid-cols-2">
+                <div class="ui-panel p-4"><div class="text-xs font-bold text-muted">WATER</div><div class="mt-2 text-sm font-bold">Reading + photo</div></div>
+                <div class="ui-panel p-4"><div class="text-xs font-bold text-muted">ELECTRICITY</div><div class="mt-2 text-sm font-bold">Reading + photo</div></div>
+              </div>
+            }
+            @case ('maintenance') {
+              <div class="ui-panel overflow-hidden">
+                <table class="w-full text-left text-[0.78rem]">
+                  <thead class="border-b border-line text-muted"><tr><th class="px-3 py-2">Unit</th><th class="px-3 py-2">Issue</th><th class="px-3 py-2">Status</th></tr></thead>
+                  <tbody>
+                    <tr class="border-b border-line-soft"><td class="px-3 py-2.5">B-012</td><td class="px-3 py-2.5">Plumbing</td><td class="px-3 py-2.5"><span class="status-pill status-info">In progress</span></td></tr>
+                    <tr><td class="px-3 py-2.5">A-088</td><td class="px-3 py-2.5">AC</td><td class="px-3 py-2.5"><span class="status-pill status-ok">Resolved</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            }
+            @default {
+              <div class="grid gap-3 sm:grid-cols-2">
+                <div class="ui-panel p-4 text-sm font-semibold">Unpaid tenants</div>
+                <div class="ui-panel p-4 text-sm font-semibold">Collection summaries</div>
+                <div class="ui-panel p-4 text-sm font-semibold">Utility costs</div>
+                <div class="ui-panel p-4 text-sm font-semibold">PDF statements</div>
+              </div>
+            }
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

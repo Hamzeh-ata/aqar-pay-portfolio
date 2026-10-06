@@ -1,0 +1,144 @@
+<section id="billing" class="section">
+  <div class="container-wide">
+    <div class="max-w-3xl" appReveal>
+      <div class="eyebrow">{{ 'billing.eyebrow' | translate }}</div>
+      <h2 class="section-title mt-4">{{ 'billing.title' | translate }}</h2>
+      <p class="lede mt-5">{{ 'billing.copy' | translate }}</p>
+    </div>
+
+    <div class="mt-16 lg:mt-20" appReveal>
+      <div class="browser-frame">
+        <div class="browser-chrome">
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <div class="browser-url">app.aqarpay.com / billing / collections</div>
+        </div>
+
+        <div class="bg-[#f7f8fb] p-5 md:p-8">
+          <div class="mb-6 flex items-center justify-between gap-4">
+            <div class="text-sm font-bold text-ink">{{ 'platformTabs.billing' | translate }}</div>
+            <div class="demo-note">{{ 'hero.demoLabel' | translate }}</div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3 md:grid-cols-4">
+            <div class="kpi">
+              <div class="kpi-label">{{ 'dashboard.expected' | translate }}</div>
+              <div class="kpi-value">48,200</div>
+            </div>
+            <div class="kpi">
+              <div class="kpi-label">{{ 'dashboard.collected' | translate }}</div>
+              <div class="kpi-value">41,450</div>
+            </div>
+            <div class="kpi">
+              <div class="kpi-label">{{ 'dashboard.outstanding' | translate }}</div>
+              <div class="kpi-value">6,750</div>
+            </div>
+            <div class="kpi">
+              <div class="kpi-label">{{ 'dashboard.overdue' | translate }}</div>
+              <div class="kpi-value">1,980</div>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <div class="flow-track">
+              @for (step of flowSteps; track step.id; let last = $last) {
+                <button
+                  type="button"
+                  class="flow-chip transition"
+                  [class.tab-active]="activeStep() === step.id"
+                  [class.tab-idle]="activeStep() !== step.id"
+                  (click)="selectStep(step.id)"
+                >
+                  {{ step.labelKey | translate }}
+                </button>
+                @if (!last) {
+                  <span class="flow-arrow">→</span>
+                }
+              }
+            </div>
+          </div>
+
+          <div class="mt-6 grid gap-6 lg:grid-cols-[1fr_1.1fr]">
+            <div class="ui-panel p-5 md:p-6">
+              @switch (activeStep()) {
+                @case ('invoice') {
+                  <div class="text-[0.68rem] font-bold uppercase tracking-[0.1em] text-muted">{{ 'billingFlow.invoice' | translate }}</div>
+                  <div class="mt-4 text-lg font-bold text-ink">INV-2402 · Rent + Utilities</div>
+                  <div class="mt-3 text-sm text-copy">Demo Tenant C · A-204</div>
+                  <div class="mt-6 text-3xl font-bold tracking-tight text-ink">1,450</div>
+                }
+                @case ('recorded') {
+                  <div class="text-[0.68rem] font-bold uppercase tracking-[0.1em] text-muted">{{ 'billingFlow.recorded' | translate }}</div>
+                  <div class="mt-4 text-lg font-bold text-ink">Payment captured</div>
+                  <div class="mt-3 text-sm text-copy">Bank transfer · 04 Mar 2026</div>
+                  <div class="mt-6"><span class="status-pill status-info">Awaiting confirmation</span></div>
+                }
+                @case ('confirmation') {
+                  <div class="text-[0.68rem] font-bold uppercase tracking-[0.1em] text-muted">{{ 'billingFlow.confirmation' | translate }}</div>
+                  <div class="mt-4 text-lg font-bold text-ink">Payment verified</div>
+                  <div class="mt-3 text-sm text-copy">Accountant approved · 04 Mar 2026</div>
+                  <div class="mt-6"><span class="status-pill status-ok">Confirmed</span></div>
+                }
+                @case ('receipt') {
+                  <div class="text-[0.68rem] font-bold uppercase tracking-[0.1em] text-muted">{{ 'billingFlow.receipt' | translate }}</div>
+                  <div class="mt-4 text-lg font-bold text-ink">Receipt RCP-8841</div>
+                  <div class="mt-3 text-sm text-copy">Issued to Demo Tenant C</div>
+                  <div class="mt-6 rounded-xl border border-line bg-surface-soft p-4 text-sm text-copy">PDF receipt ready for download</div>
+                }
+                @case ('statement') {
+                  <div class="text-[0.68rem] font-bold uppercase tracking-[0.1em] text-muted">{{ 'billingFlow.statement' | translate }}</div>
+                  <div class="mt-4 text-lg font-bold text-ink">Account statement</div>
+                  <div class="mt-3 text-sm text-copy">Q1 2026 · Demo Tenant C</div>
+                  <div class="mt-6 space-y-2 text-sm text-copy">
+                    <div class="flex justify-between"><span>Opening balance</span><span class="font-semibold text-ink">0</span></div>
+                    <div class="flex justify-between"><span>Payments</span><span class="font-semibold text-ink">4,350</span></div>
+                    <div class="flex justify-between border-t border-line-soft pt-2"><span>Closing balance</span><span class="font-semibold text-ink">0</span></div>
+                  </div>
+                }
+              }
+            </div>
+
+            <div class="ui-panel overflow-hidden">
+              <div class="border-b border-line px-5 py-3 text-[0.72rem] font-bold uppercase tracking-[0.1em] text-muted">
+                Invoices
+              </div>
+              <table class="w-full text-left text-[0.78rem]">
+                <thead class="border-b border-line text-muted">
+                  <tr>
+                    <th class="px-5 py-2.5 font-bold">Tenant</th>
+                    <th class="px-5 py-2.5 font-bold">Invoice</th>
+                    <th class="px-5 py-2.5 font-bold">Amount</th>
+                    <th class="px-5 py-2.5 font-bold">Status</th>
+                  </tr>
+                </thead>
+                <tbody class="text-copy">
+                  @for (invoice of invoices; track invoice.invoice) {
+                    <tr class="border-b border-line-soft last:border-0">
+                      <td class="px-5 py-3">{{ invoice.tenant }}</td>
+                      <td class="px-5 py-3 font-semibold text-ink">{{ invoice.invoice }}</td>
+                      <td class="px-5 py-3 font-semibold text-ink">{{ invoice.amount }}</td>
+                      <td class="px-5 py-3">
+                        @switch (invoice.status) {
+                          @case ('ok') {
+                            <span class="status-pill status-ok">{{ invoice.statusLabel }}</span>
+                          }
+                          @case ('warn') {
+                            <span class="status-pill status-warn">{{ invoice.statusLabel }}</span>
+                          }
+                          @case ('danger') {
+                            <span class="status-pill status-danger">{{ invoice.statusLabel }}</span>
+                          }
+                        }
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

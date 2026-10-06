@@ -1,0 +1,92 @@
+<section id="how-it-works" class="section section-muted">
+  <div class="container-wide">
+    <div class="max-w-3xl" appReveal>
+      <div class="eyebrow">{{ 'webMobile.eyebrow' | translate }}</div>
+      <h2 class="section-title mt-4">{{ 'webMobile.title' | translate }}</h2>
+    </div>
+
+    <div class="mt-12 grid items-start gap-10 lg:grid-cols-[1.15fr_0.85fr]" appReveal>
+      <div>
+        <div class="mb-4 text-sm font-bold text-ink">{{ 'webMobile.webTitle' | translate }}</div>
+        <div class="browser-frame">
+          <div class="browser-chrome">
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <div class="browser-url">app.aqarpay.com / dashboard</div>
+          </div>
+          <div class="grid gap-4 bg-[#f7f8fb] p-4 md:grid-cols-[180px_1fr] md:p-5">
+            <aside class="hidden rounded-2xl bg-ink p-4 text-white md:block">
+              <div class="mb-5 text-xs font-bold tracking-[0.14em]">AQARPAY</div>
+              <div class="space-y-2 text-[0.78rem]">
+                <div class="rounded-xl bg-white/10 px-3 py-2 font-semibold">{{ 'dashboard.portfolio' | translate }}</div>
+                <div class="rounded-xl px-3 py-2 text-white/55">{{ 'platformTabs.tenants' | translate }}</div>
+                <div class="rounded-xl px-3 py-2 text-white/55">{{ 'platformTabs.billing' | translate }}</div>
+                <div class="rounded-xl px-3 py-2 text-white/55">{{ 'platformTabs.collections' | translate }}</div>
+                <div class="rounded-xl px-3 py-2 text-white/55">{{ 'platformTabs.reports' | translate }}</div>
+              </div>
+            </aside>
+            <div>
+              <div class="mb-3 flex items-center justify-between">
+                <div class="text-sm font-bold text-ink">{{ 'dashboard.portfolio' | translate }}</div>
+                <div class="demo-note">{{ 'hero.demoLabel' | translate }}</div>
+              </div>
+              <div class="grid grid-cols-2 gap-2.5 md:grid-cols-4">
+                <div class="kpi"><div class="kpi-label">{{ 'dashboard.portfolio' | translate }}</div><div class="kpi-value">24</div></div>
+                <div class="kpi"><div class="kpi-label">{{ 'dashboard.occupancy' | translate }}</div><div class="kpi-value">91%</div></div>
+                <div class="kpi"><div class="kpi-label">{{ 'dashboard.collected' | translate }}</div><div class="kpi-value">86%</div></div>
+                <div class="kpi"><div class="kpi-label">{{ 'dashboard.maintenance' | translate }}</div><div class="kpi-value">7</div></div>
+              </div>
+              <div class="ui-panel mt-3 overflow-hidden">
+                <table class="w-full text-left text-[0.72rem]">
+                  <thead class="border-b border-line text-muted">
+                    <tr><th class="px-3 py-2">Building</th><th class="px-3 py-2">Units</th><th class="px-3 py-2">Status</th></tr>
+                  </thead>
+                  <tbody class="text-copy">
+                    <tr class="border-b border-line-soft"><td class="px-3 py-2.5">Al Noor Tower</td><td class="px-3 py-2.5">48</td><td class="px-3 py-2.5"><span class="status-pill status-ok">Active</span></td></tr>
+                    <tr><td class="px-3 py-2.5">Garden Residences</td><td class="px-3 py-2.5">36</td><td class="px-3 py-2.5"><span class="status-pill status-ok">Active</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center lg:items-start">
+        <div class="mb-4 text-sm font-bold text-ink">{{ 'webMobile.mobileTitle' | translate }}</div>
+        <div class="phone-frame">
+          <div class="phone-notch"><span></span></div>
+          <div class="p-4">
+            <div class="mb-4 flex items-center justify-between">
+              <div class="text-xs font-bold text-ink">{{ 'utilityFlow.mobile' | translate }}</div>
+              <div class="demo-note">{{ 'hero.demoLabel' | translate }}</div>
+            </div>
+            <div class="ui-panel p-4">
+              <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">A-204</div>
+              <div class="mt-2 text-sm font-bold text-ink">Al Noor Tower</div>
+              <div class="mt-4 space-y-2 text-[0.78rem] text-copy">
+                <div class="flex items-center justify-between rounded-lg bg-surface-soft px-3 py-2">
+                  <span>Water meter</span>
+                  <span class="status-pill status-ok">Done</span>
+                </div>
+                <div class="flex items-center justify-between rounded-lg bg-surface-soft px-3 py-2">
+                  <span>Electricity</span>
+                  <span class="status-pill status-info">Pending</span>
+                </div>
+                <div class="flex items-center justify-between rounded-lg bg-surface-soft px-3 py-2">
+                  <span>Payment</span>
+                  <span class="status-pill status-warn">Record</span>
+                </div>
+              </div>
+            </div>
+            <div class="ui-panel mt-3 p-3">
+              <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">{{ 'dashboard.maintenance' | translate }}</div>
+              <div class="mt-2 text-sm font-bold text-ink">B-012 · Plumbing</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,127 @@
+<section id="features" class="section">
+  <div class="container-wide">
+    <div class="max-w-3xl" appReveal>
+      <div class="eyebrow">{{ 'roles.eyebrow' | translate }}</div>
+      <h2 class="section-title mt-4">{{ 'roles.title' | translate }}</h2>
+      <p class="lede mt-5">{{ 'roles.copy' | translate }}</p>
+    </div>
+
+    <div class="mt-10" appReveal>
+      <div class="flow-track">
+        @for (role of roles; track role.id) {
+          <button
+            type="button"
+            class="flow-chip transition"
+            [class.tab-active]="activeRole() === role.id"
+            [class.tab-idle]="activeRole() !== role.id"
+            (click)="selectRole(role.id)"
+          >
+            {{ role.labelKey | translate }}
+          </button>
+        }
+      </div>
+
+      <div class="mt-6 browser-frame">
+        <div class="browser-chrome">
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <div class="browser-url">aqarpay / {{ activeRoleOption().labelKey | translate }}</div>
+        </div>
+        <div class="bg-[#f7f8fb] p-4 md:p-5">
+          <div class="mb-3 flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <div class="text-sm font-bold text-ink">{{ activeRoleOption().labelKey | translate }}</div>
+              <div class="mt-1 text-[0.82rem] text-copy">{{ activeRoleOption().copyKey | translate }}</div>
+            </div>
+            <div class="demo-note">{{ 'hero.demoLabel' | translate }}</div>
+          </div>
+
+          @switch (activeRole()) {
+            @case ('owner') {
+              <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                <div class="kpi"><div class="kpi-label">{{ 'dashboard.portfolio' | translate }}</div><div class="kpi-value">24</div></div>
+                <div class="kpi"><div class="kpi-label">{{ 'dashboard.occupancy' | translate }}</div><div class="kpi-value">91%</div></div>
+                <div class="kpi"><div class="kpi-label">{{ 'dashboard.collected' | translate }}</div><div class="kpi-value">86%</div></div>
+                <div class="kpi"><div class="kpi-label">{{ 'dashboard.outstanding' | translate }}</div><div class="kpi-value">14%</div></div>
+              </div>
+              <div class="ui-panel mt-3 p-4">
+                <div class="mb-3 text-xs font-bold text-ink">{{ 'dashboard.collected' | translate }}</div>
+                <div class="space-y-3">
+                  <div>
+                    <div class="mb-1 flex justify-between text-[0.72rem] text-copy"><span>{{ 'dashboard.expected' | translate }}</span><span>100%</span></div>
+                    <div class="bar-track"><span class="bar-fill" style="width:100%"></span></div>
+                  </div>
+                  <div>
+                    <div class="mb-1 flex justify-between text-[0.72rem] text-copy"><span>{{ 'dashboard.collected' | translate }}</span><span>86%</span></div>
+                    <div class="bar-track"><span class="bar-fill" style="width:86%"></span></div>
+                  </div>
+                  <div>
+                    <div class="mb-1 flex justify-between text-[0.72rem] text-copy"><span>{{ 'dashboard.outstanding' | translate }}</span><span>14%</span></div>
+                    <div class="bar-track"><span class="bar-fill !bg-[linear-gradient(90deg,#c9852c,#d15a56)]" style="width:14%"></span></div>
+                  </div>
+                </div>
+              </div>
+            }
+            @case ('manager') {
+              <div class="grid gap-3 md:grid-cols-3">
+                <div class="kpi"><div class="kpi-label">Buildings</div><div class="kpi-value">24</div></div>
+                <div class="kpi"><div class="kpi-label">{{ 'dashboard.maintenance' | translate }}</div><div class="kpi-value">7</div></div>
+                <div class="kpi"><div class="kpi-label">{{ 'dashboard.expiring' | translate }}</div><div class="kpi-value">5</div></div>
+              </div>
+              <div class="ui-panel mt-3 overflow-hidden">
+                <table class="w-full text-left text-[0.78rem]">
+                  <thead class="border-b border-line text-muted"><tr><th class="px-3 py-2">Unit</th><th class="px-3 py-2">Tenant</th><th class="px-3 py-2">Status</th></tr></thead>
+                  <tbody>
+                    <tr class="border-b border-line-soft"><td class="px-3 py-2.5">A-101</td><td class="px-3 py-2.5">Demo Tenant</td><td class="px-3 py-2.5"><span class="status-pill status-ok">Active</span></td></tr>
+                    <tr class="border-b border-line-soft"><td class="px-3 py-2.5">A-204</td><td class="px-3 py-2.5">Demo Tenant</td><td class="px-3 py-2.5"><span class="status-pill status-warn">Expiring</span></td></tr>
+                    <tr><td class="px-3 py-2.5">B-012</td><td class="px-3 py-2.5">Demo Tenant</td><td class="px-3 py-2.5"><span class="status-pill status-info">Maintenance</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            }
+            @case ('accountant') {
+              <div class="grid gap-3 sm:grid-cols-4">
+                <div class="kpi"><div class="kpi-label">{{ 'dashboard.expected' | translate }}</div><div class="kpi-value">100%</div></div>
+                <div class="kpi"><div class="kpi-label">{{ 'dashboard.collected' | translate }}</div><div class="kpi-value">86%</div></div>
+                <div class="kpi"><div class="kpi-label">{{ 'dashboard.outstanding' | translate }}</div><div class="kpi-value">14%</div></div>
+                <div class="kpi"><div class="kpi-label">{{ 'dashboard.overdue' | translate }}</div><div class="kpi-value">6%</div></div>
+              </div>
+              <div class="ui-panel mt-3 overflow-hidden">
+                <table class="w-full text-left text-[0.78rem]">
+                  <thead class="border-b border-line text-muted"><tr><th class="px-3 py-2">Invoice</th><th class="px-3 py-2">Unit</th><th class="px-3 py-2">Status</th></tr></thead>
+                  <tbody>
+                    <tr class="border-b border-line-soft"><td class="px-3 py-2.5">Rent · Mar</td><td class="px-3 py-2.5">A-101</td><td class="px-3 py-2.5"><span class="status-pill status-ok">Paid</span></td></tr>
+                    <tr class="border-b border-line-soft"><td class="px-3 py-2.5">Rent + Water</td><td class="px-3 py-2.5">A-204</td><td class="px-3 py-2.5"><span class="status-pill status-warn">Pending</span></td></tr>
+                    <tr><td class="px-3 py-2.5">Utilities</td><td class="px-3 py-2.5">B-012</td><td class="px-3 py-2.5"><span class="status-pill status-info">Issued</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            }
+            @case ('field') {
+              <div class="grid gap-3 md:grid-cols-2">
+                <div class="ui-panel p-4">
+                  <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">Water</div>
+                  <div class="mt-2 text-sm font-bold text-ink">A-204 · 1240 m³</div>
+                  <div class="mt-3"><span class="status-pill status-ok">Reading saved</span></div>
+                </div>
+                <div class="ui-panel p-4">
+                  <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">Electricity</div>
+                  <div class="mt-2 text-sm font-bold text-ink">A-204 · 5820 kWh</div>
+                  <div class="mt-3"><span class="status-pill status-ok">Photo attached</span></div>
+                </div>
+              </div>
+              <div class="ui-panel mt-3 p-4">
+                <div class="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-muted">{{ 'dashboard.maintenance' | translate }}</div>
+                <div class="mt-2 flex items-center justify-between text-sm">
+                  <span class="font-bold text-ink">B-012 · Plumbing</span>
+                  <span class="status-pill status-info">In progress</span>
+                </div>
+              </div>
+            }
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
